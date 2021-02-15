@@ -18,6 +18,9 @@ class UserController extends Controller
             $image->save();
             $book->image_id = $image->id;
         }
+        else{
+            $book->image_id=null;
+        }
         $book->name_user = $request->userName;
         $id_gr = Group::where('nameOfGroup', $request->groupName)->select('id')->first();
         $book->group_id = $id_gr->id;
